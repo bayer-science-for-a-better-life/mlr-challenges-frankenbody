@@ -1,0 +1,27 @@
+# Please, also install your favorite libraries in the environment
+
+name: frankenbody
+
+channels:
+  - conda-forge
+  - nodefaults
+
+dependencies:
+  - python
+  - pip
+  - pandas
+  - scikit-learn
+  - matplotlib
+  - pyarrow
+  - cryptography
+
+  - biotite
+
+  # you can get rid of this if you are not a notebook person
+  - jupyter-lab
+
+  # in case you want to write unit tests
+  - pytest
+
+  - pip:
+    - "-e ."
