@@ -15,13 +15,17 @@ dependencies:
   - pyarrow
   - cryptography
 
+  # for people who might like bioinformatics
   - biotite
 
-  # you can get rid of this if you are not a notebook person
+  # for who like notebooks
   - jupyter-lab
 
-  # in case you want to write unit tests
   - pytest
+
+  # to manipulate our own repo
+  - git
+  - gitpython
 
   - pip:
     - "-e ."
