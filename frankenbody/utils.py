@@ -61,7 +61,7 @@ class EncryptedFile(BytesIO):
 
 def git_ignore_file(path, unignore=False, ignore_errors=False):
     try:
-        repo = Repo(path)
+        repo = Repo(path, search_parent_directories=True)
         if unignore:
             repo.git.update_index(f'--no-skip-worktree', str(path))
         else:
