@@ -4,6 +4,9 @@ from typing import Optional
 
 from cryptography.fernet import Fernet
 
+from git import Repo
+from git import InvalidGitRepositoryError
+
 
 # --- Encryption
 # See: https://nitratine.net/blog/post/encryption-and-decryption-in-python/
@@ -52,3 +55,17 @@ class EncryptedFile(BytesIO):
         if self.encrypted_path.is_file():
             with path.open('wb') as writer:
                 writer.write(self.read())
+
+
+# --- Git
+
+def git_ignore_file(path, unignore=False, ignore_errors=False):
+    try:
+        repo = Repo(path)
+        if unignore:
+            repo.git.update_index(f'--no-skip-worktree', str(path))
+        else:
+            repo.git.update_index(f'--skip-worktree', str(path))
+    except InvalidGitRepositoryError:
+        if not ignore_errors:
+            raise
