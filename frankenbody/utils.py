@@ -30,7 +30,7 @@ class EncryptedFile(BytesIO):
 
         path = Path(path)
         self.decrypted_path = path if path.suffix != '.encrypted' else path.with_suffix('')
-        self.encrypted_path = path if path.suffix == '.encrypted' else path.with_suffix('.encrypted')
+        self.encrypted_path = path if path.suffix == '.encrypted' else path.with_suffix(path.suffix + '.encrypted')
 
         self.remove_decrypted = remove_decrypted
 
