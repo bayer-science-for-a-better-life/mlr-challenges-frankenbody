@@ -103,13 +103,13 @@ Reviewing
 Your submission will be reviewed at least by two of our colleagues.
 Some aspects we will try to grasp from it are:
 
-- **Critical thinking**
-- **Creativity**:
-- **Clarity of exposition**
-- **Code quality**
-- **Machine learning**
-- **Technical choices**
-- **Time management**
+- Critical thinking
+- Creativity
+- Clarity of exposition
+- Code quality
+- Machine learning
+- Technical choices
+- Time management
 
 
 Getting help
