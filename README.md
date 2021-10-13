@@ -38,3 +38,7 @@ and share it with us in the email.
 
 You can also send the results by email, but please beware of large attachement sizes
 (for example if you send us notebooks).
+
+Getting help
+------------
+Do not hesitate to email us, we are happy to help!
