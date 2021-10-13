@@ -19,6 +19,7 @@ dependencies:
   - cryptography
   - argh
   - git
+  - git-lfs
   - gitpython
 
   # for people who like bioinformatics
