@@ -11,10 +11,11 @@ from frankenbody.utils import EncryptedFile
 
 class FrankenbodyHub:
 
-    def __init__(self):
+    def __init__(self, subsample=True):
         super().__init__()
         self.path = Path(__file__).parent.parent
         self.data_path = self.path / 'data'
+        self.subsample = subsample
 
     # --- Access antibodies metadata
 
@@ -38,18 +39,27 @@ class FrankenbodyHub:
     # --- Iterate over all present featurizations
 
     def list_present_features(self):
-        return sorted(feature_path.name for feature_path in self.data_path.glob('features_*.parquet*'))
+        features = set(feature_path.name.replace('.encrypted', '')
+                       for feature_path in self.data_path.glob('features_*.parquet*'))
+        if self.subsample:
+            features = [feature for feature in features if '-subsample' in feature]
+        else:
+            features = [feature for feature in features if '-subsample' not in feature]
+        return sorted(features)
 
     def iterate_features(self) -> Iterator[Tuple[str, pd.DataFrame]]:
         for features_name in self.list_present_features():
-            features_name = features_name.partition('.')[0]
+            features_name = features_name.partition('.')[0].replace('-subsample', '')
             yield features_name, getattr(self, features_name)()
 
     # --- Decryption utils
 
     def _load_encrypted_parquet(self, file_name):
 
-        path = self.data_path / file_name
+        if file_name.startswith('features_') and self.subsample:
+            path = self.data_path / file_name.replace('.parquet', '-subsample.parquet')
+        else:
+            path = self.data_path / file_name
 
         try:
             if FRANKENBODY_PRIVATE_KEY is None:
