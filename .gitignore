@@ -50,3 +50,6 @@ doc/_build
 .DS_Store
 
 *.parquet
+*.encrypted
+*.xz
+*.xlsx
