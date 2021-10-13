@@ -12,16 +12,27 @@ setup(
     url='https://github.com/bayer-science-for-a-better-life/mlr-challenges-frankenbody',
     license=None,
     py_modules=['frankenbody'],
+
+    # at the moment deps are managed solely via conda
     install_requires=[],
-    platforms=['all'],
+    tests_require=[],
+    extras_require={},
+
+    entry_points={
+        'console_scripts': [
+            'frankenbody = frankenbody.commands:main'
+        ]
+    },
+
     classifiers=[
+        'Intended Audience :: Science/Research',
         'Intended Audience :: Developers',
-        'License :: OSI Approved :: BSD-3-Clause',
         'Topic :: Software Development',
-        'Operating System :: OS Independent',
-        'Programming Language :: Python',
+        'Topic :: Scientific/Engineering',
+        'License :: OSI Approved',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
-    ]
+    ],
+    platforms=['Any'],
 )
