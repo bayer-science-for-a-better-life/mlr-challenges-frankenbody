@@ -36,5 +36,19 @@ def frankenbody_encryption_smoke_test():
     print('ENCRYPTION WORKS')
 
 
-if __name__ == '__main__':
+def smoke():
     frankenbody_encryption_smoke_test()
+    print('SMOKE TESTS HAVE PASSED')
+
+
+def main():
+    import argh
+    parser = argh.ArghParser()
+    parser.add_commands([
+        smoke,
+    ])
+    parser.dispatch()
+
+
+if __name__ == '__main__':
+    main()
