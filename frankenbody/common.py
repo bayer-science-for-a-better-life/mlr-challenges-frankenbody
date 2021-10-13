@@ -5,8 +5,8 @@ from typing import Iterator, Tuple
 import pandas as pd
 from cryptography.fernet import InvalidToken
 
-from frankenbody.utils import EncryptedFile
 from frankenbody.private_key import FRANKENBODY_PRIVATE_KEY
+from frankenbody.utils import EncryptedFile
 
 
 class FrankenbodyHub:
@@ -18,16 +18,22 @@ class FrankenbodyHub:
 
     # --- Access antibodies metadata
 
-    def frankenbody_antibodies(self) -> pd.DataFrame:
+    def antibodies(self) -> pd.DataFrame:
         return self._load_encrypted_parquet('frankenbody_antibodies.parquet')
 
     # --- Access antibodies featurizations
 
-    def features_esm1_t6_43m_ur50s(self) -> pd.DataFrame:
-        return self._load_encrypted_parquet('features_esm1_t6_43m_ur50s.parquet')
+    def features_full_esm1_small(self) -> pd.DataFrame:
+        return self._load_encrypted_parquet('features_full_esm1_small.parquet')
 
-    def features_esm1b_t33_650m_ur50s(self) -> pd.DataFrame:
-        return self._load_encrypted_parquet('features_esm1b_t33_650m_ur50s.parquet')
+    def features_full_protlearn(self) -> pd.DataFrame:
+        return self._load_encrypted_parquet('features_full_protlearn.parquet')
+
+    def features_cdr3_esm1_small(self) -> pd.DataFrame:
+        return self._load_encrypted_parquet('features_cdr3_esm1_small.parquet')
+
+    def features_cdr3_protlearn(self) -> pd.DataFrame:
+        return self._load_encrypted_parquet('features_cdr3_protlearn.parquet')
 
     # --- Iterate over all present featurizations
 
@@ -50,7 +56,7 @@ class FrankenbodyHub:
                 raise InvalidToken
             return pd.read_parquet(EncryptedFile(path=path,
                                                  key=FRANKENBODY_PRIVATE_KEY,
-                                                 remove_decrypted=True))
+                                                 remove_decrypted=False))
         except (binascii.Error, InvalidToken) as ex:
             raise Exception(
                 f'INCORRECT ENCRYPTION KEY ({FRANKENBODY_PRIVATE_KEY}) for {path}\n'
@@ -59,13 +65,3 @@ class FrankenbodyHub:
                 '  - or specify it via the "FRANKENBODY_PRIVATE_KEY" environment variable\n'
                 'The key will be sent to you via email a few minutes before the challenge starts.'
             ) from ex
-
-
-if __name__ == '__main__':
-    hub = FrankenbodyHub()
-
-    print(hub.frankenbody_antibodies())
-    print(hub.list_present_features())
-    for featurization_name, features_df in hub.iterate_features():
-        features_df.info()
-        print(featurization_name)
