@@ -36,9 +36,36 @@ def frankenbody_encryption_smoke_test():
     print('ENCRYPTION WORKS')
 
 
+def frankenbody_hub_smoke_tests():
+    hub = FrankenbodyHub(subsample=True)
+
+    EXPECTED_FEATURIZATIONS = [
+        'features_cdr3_esm1_small-subsample.parquet',
+        'features_cdr3_protlearn-subsample.parquet',
+        'features_full_esm1_small-subsample.parquet',
+        'features_full_protlearn-subsample.parquet'
+    ]
+    assert hub.list_present_features() == EXPECTED_FEATURIZATIONS
+
+    EXPECTED_FEATURIZATION_SHAPES = {
+        'features_cdr3_esm1_small': (3249, 39),
+        'features_cdr3_protlearn': (3249, 51),
+        'features_full_esm1_small': (3816, 39),
+        'features_full_protlearn': (3814, 59)
+    }
+
+    for featurization_name, features_df in hub.iterate_features():
+        assert EXPECTED_FEATURIZATION_SHAPES[featurization_name] == features_df.shape
+
+
 def smoke():
     frankenbody_encryption_smoke_test()
     print('SMOKE TESTS HAVE PASSED')
+
+
+def smoke_challenge():
+    frankenbody_hub_smoke_tests()
+    print('CHALLENGE SMOKE TESTS HAVE PASSED')
 
 
 def main():
@@ -46,6 +73,7 @@ def main():
     parser = argh.ArghParser()
     parser.add_commands([
         smoke,
+        smoke_challenge,
     ])
     parser.dispatch()
 
