@@ -56,7 +56,7 @@ class FrankenbodyHub:
 
     def _load_encrypted_parquet(self, file_name):
 
-        if file_name.startswith('features_') and self.subsample:
+        if self.subsample:
             path = self.data_path / file_name.replace('.parquet', '-subsample.parquet')
         else:
             path = self.data_path / file_name
