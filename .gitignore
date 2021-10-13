@@ -53,3 +53,4 @@ doc/_build
 *.encrypted
 *.xz
 *.xlsx
+data/results
