@@ -22,6 +22,9 @@ frankenbody smoke
 # If all worked, you should see printed "SMOKE TESTS HAVE PASSED 
 ```
 
+As an alternative to cloning, you can [download](https://github.com/bayer-science-for-a-better-life/mlr-challenges-frankenbody/archive/refs/heads/main.zip)
+the challenge code and data as a zip file.
+
 During the challenge day
 ------------------------
 We will provide you with a key to access the secret parts of the challenge.
