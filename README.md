@@ -22,8 +22,6 @@ frankenbody smoke
 # If all worked, you should see printed "SMOKE TESTS HAVE PASSED 
 ```
 
-Note: files under ```data``` are LFS stored. Let us know if this gives you any problem.
-
 During the challenge day
 ------------------------
 We will provide you with a key to access the secret parts of the challenge.
