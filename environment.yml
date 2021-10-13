@@ -1,4 +1,4 @@
-# Please, also install your favorite libraries in the environment
+# Feel free to add your favorite libraries to the environment
 
 name: frankenbody
 
@@ -9,23 +9,26 @@ channels:
 dependencies:
   - python
   - pip
+  - numpy
   - pandas
+  - pyarrow
   - scikit-learn
   - matplotlib
-  - pyarrow
+
+  # challenge logistics
   - cryptography
-
-  # for people who might like bioinformatics
-  - biotite
-
-  # for who like notebooks
-  - jupyter-lab
-
-  - pytest
-
-  # to manipulate our own repo
+  - argh
   - git
   - gitpython
+
+  # for people who like bioinformatics
+  # - biotite
+
+  # for people who like notebooks
+  # - jupyter-lab
+
+  # for people who like to test
+  # - pytest
 
   - pip:
     - "-e ."
