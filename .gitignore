@@ -54,3 +54,4 @@ doc/_build
 *.xz
 *.xlsx
 data/results
+README.challenge.md
