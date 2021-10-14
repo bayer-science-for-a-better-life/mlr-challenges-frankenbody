@@ -110,11 +110,13 @@ Submitting your solution
 
 Please email us when the solution is ready. To share the solution you can:
 
-- **Use a private GitHub/GitLab repository**.This is our preference.
-You could set it up before the challenge date. Please give us access to the repository
-and share the link with us in the email.
-<br><br>
-- **Add an attachment to the email**. Alternatively, you can also send the results in a compressed file.
+- **Use a private GitHub/GitLab repository**.<br>
+This is our preference. You could set it up before the challenge date. <br>
+Please give us access to the repository and share the link with us in the email.
+
+- **Add an attachment to the email**.<br>
+Alternatively, you can also send the results in a compressed file.<br>
+
 Please beware of large attachement sizes. For example if you send us notebooks,
 it would be a good idea to clean first variables holding heavy state (e.g., data and models).
 
