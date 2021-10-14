@@ -20,7 +20,6 @@ Preparing
 We recommend using conda to manage code dependencies, and we provide a [ready to use environment](https://github.com/bayer-science-for-a-better-life/mlr-challenges-frankenbody/blob/main/environment.yml).
 
 1. If needed, [install conda](https://docs.conda.io/en/latest/miniconda.html).
-<br><br>
 
 2. Clone [the repository](https://github.com/bayer-science-for-a-better-life/mlr-challenges-frankenbody).
 ```shell
@@ -111,8 +110,7 @@ it would be a good idea to clean first variables holding heavy state (e.g., data
 Reviewing
 ---------
 
-Your submission will be reviewed by at least two of our colleagues.
-We will be able to discuss it together at later steps during the interview process.
+Your submission will be reviewed by at least two of our colleagues and discuss it together at later steps during the interview process.
 
 
 Getting help
