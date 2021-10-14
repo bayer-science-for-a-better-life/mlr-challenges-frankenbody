@@ -1,12 +1,14 @@
-FrankenBody: An Antibody Property Prediction Challenge
-======================================================
+An Antibody Property Prediction Challenge
+=========================================
+
+:wave: Hello! At Bayer's Machine Learning Research we are very happy with your interest in our work.
 
 In this challenge you will help us predict a couple of important [antibody](https://pdb101.rcsb.org/motm/21)
 properties: :adhesive_bandage: [binding to SARS-CoV2](https://academic.oup.com/bioinformatics/article/37/5/734/5893556)
 and :pill: [developability as therapeutics](https://www.pnas.org/content/116/10/4025).
 
 We will provide you with some data (antibody sequences :dna:, ground truth and more)
-plus code to load it. We also provide features that should be used to build machine
+plus code to load them. We also provide features that should be used to build machine
 learning models.
 
 *Note: there is no need to review any of the provided links to successfully complete the task.*
@@ -15,26 +17,28 @@ learning models.
 Preparing
 ---------
 
-We recommend using conda, and we provide a ready to use environment.
+We recommend using conda to manage code dependencies, and we provide a [ready to use environment](https://github.com/bayer-science-for-a-better-life/mlr-challenges-frankenbody/blob/main/environment.yml).
 
-1. If needed, [install conda](https://docs.conda.io/en/latest/miniconda.html)
-2. Clone [the repository](https://github.com/bayer-science-for-a-better-life/mlr-challenges-frankenbody)
-3. Create the environment (and add your favorite libraries)
-4. Run the sanity checks
+1. If needed, [install conda](https://docs.conda.io/en/latest/miniconda.html).
+<br><br>
 
-In commands, steps 2-4 should translate to:
-
+2. Clone [the repository](https://github.com/bayer-science-for-a-better-life/mlr-challenges-frankenbody).
 ```shell
-# clone
 git clone https://github.com/bayer-science-for-a-better-life/mlr-challenges-frankenbody.git
+```
 
-# create the environment
+3. Create the environment (and add your favorite libraries).
+```shell
 cd mlr-challenges-frankenbody
 conda env create -f environment.yml
-conda activate frankenbody
-# add your favorite software (e.g., conda install -c conda-forge jupyter seaborn pytorch biotite)
+# add your favorite software 
+# e.g., conda install -c conda-forge jupyter seaborn pytorch biotite -n frankenbody
+# or edit environment.yml
+```
 
-# run "smoke" tests
+4. Run the sanity checks
+```shell
+conda activate frankenbody
 frankenbody smoke
 # if all this worked, you should see printed "SMOKE TESTS HAVE PASSED"
 # otherwise, please drop us an email
@@ -43,7 +47,7 @@ frankenbody smoke
 As an alternative to cloning, you can [download](https://github.com/bayer-science-for-a-better-life/mlr-challenges-frankenbody/archive/refs/heads/main.zip)
 the challenge code and data as a zip file.
 
-The data is small enough for the challenge to be solved in a commodity laptop.
+These data are small enough for the challenge to be solved in a commodity laptop.
 
 
 During the challenge
@@ -52,15 +56,22 @@ During the challenge
 At the agreed time, you will receive an email with extra information.
 
 1. To allow for last minute changes, please pull or redownload the repository.
+```shell
+cd mlr-challenges-frankenbody
+git pull
+```
 
-2. We will provide you with a key to access the secret parts of the challenge.
-You will need to add it to [frankenbody/private_key.py](https://github.com/bayer-science-for-a-better-life/mlr-challenges-frankenbody/blob/f43156644439e8c04ac987cd47998010e25707e1/frankenbody/private_key.py#L5-L6).
+2. We will provide you with a key to access the secret parts of the challenge (essentially the data).
+<br>You will need to add it to [frankenbody/private_key.py](https://github.com/bayer-science-for-a-better-life/mlr-challenges-frankenbody/blob/f43156644439e8c04ac987cd47998010e25707e1/frankenbody/private_key.py#L5-L6) like:
+```python
+# Hardcode here the key sent to you, should look like:
+FRANKENBODY_PRIVATE_KEY = b'FLrMTzp5j-tGSC6T01X-bMW6B1DEitatc6JmUP3Xs6M='
+```
 
 3. To verify that everything has worked correctly, please run:
 
 ```shell
 conda activate frankenbody
-
 frankenbody smoke-challenge
 # if all this worked, you should see printed "CHALLENGE SMOKE TESTS HAVE PASSED"
 # otherwise, please drop us an email
@@ -72,12 +83,12 @@ Feel free to use anything, from python files to notebooks, to shape the solution
 Time allotment
 --------------
 
-We just want to get a sense of your thought process and technical skills.
+We just want to get a sense of your thought process and skills.
 
 Please, **do not spend more than 4 hours solving the challenge**.
 
 We respect and appreciate your time. The challenge is scoped in a way that allows
-for many ways to completion. We are happy to receive solutions within shorter time frames.
+for many paths to completion. We are happy to receive solutions within shorter time frames.
 
 If there are features you wish you had time to implement,
 feel free to use pseudocode and/or prose to describe them.
@@ -89,27 +100,19 @@ Submitting your solution
 Please email us when the solution is ready. To share the solution you can:
 
 - **Use a private GitHub/GitLab repository**.This is our preference.
-You could set it up before the challenge date. Please give us access to the repository,
-add a git tag to the final submission and share the link with us in the email.
-
-- **As an attachment to the email**. Alternatively, you can also send the results in a compressed file.
+You could set it up before the challenge date. Please give us access to the repository
+and share the link with us in the email.
+<br><br>
+- **Add an attachment to the email**. Alternatively, you can also send the results in a compressed file.
 Please beware of large attachement sizes. For example if you send us notebooks,
-it would be a good idea to clean first variables holding heavy state (data and models).
+it would be a good idea to clean first variables holding heavy state (e.g., data and models).
 
 
 Reviewing
 ---------
 
-Your submission will be reviewed at least by two of our colleagues.
-Some aspects we will try to grasp from it are:
-
-- Critical thinking
-- Creativity
-- Clarity of exposition
-- Code quality
-- Machine learning
-- Technical choices
-- Time management
+Your submission will be reviewed by at least two of our colleagues.
+We will be able to discuss it together at later steps during the interview process.
 
 
 Getting help
@@ -121,15 +124,7 @@ Do not hesitate to email us, we are happy to help!
 Providing feedback
 ------------------
 
-We constantly seek to improve our hiring practices.
-Please, let us know about any thought you can share with us.
-
-
-Why "FrankenBody"?
-------------------
-
-Portmanteau of "Frankenstein" and "Antibody". We feel the provided dataset is a rare mix
-of badly assembled antibody data sources. We also needed a catchy namespace for our code.
+We highly appreciate feedback. Please, let us know about any thought you can share with us.
 
 
 Acknowledments
