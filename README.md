@@ -13,9 +13,21 @@ learning models.
 
 *Note: there is no need to review any of the provided links to successfully complete the task.*
 
+<details><summary>Table of contents</summary>
 
-Preparing
----------
+- [Preparing for the challenge day](#preparing-for-the-challenge-day)
+- [During the challenge](#during-the-challenge)
+- [Time allotment](#time-allotment)
+- [Submitting your solution](#submitting-your-solution)
+- [Reviewing](#reviewing)
+- [Getting help](#getting-help)
+- [Providing feedback](#providing-feedback)
+- [Acknowledgements](#acknowledgements)
+
+</details>
+
+Preparing for the challenge day
+-------------------------------
 
 We recommend using conda to manage code dependencies, and we provide a [ready to use environment](https://github.com/bayer-science-for-a-better-life/mlr-challenges-frankenbody/blob/main/environment.yml).
 
@@ -125,8 +137,8 @@ Providing feedback
 We highly appreciate feedback. Please, let us know about any thought you can share with us.
 
 
-Acknowledments
---------------
+Acknowledgements
+----------------
 
 These data have been derived from:
 - [CoV-AbDab](http://opig.stats.ox.ac.uk/webapps/covabdab/) ([paper](https://academic.oup.com/bioinformatics/advance-article/doi/10.1093/bioinformatics/btaa739/5893556), [CC-BY 4.0 license](https://creativecommons.org/licenses/by/4.0/))
