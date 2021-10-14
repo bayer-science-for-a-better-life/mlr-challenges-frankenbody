@@ -128,7 +128,7 @@ We highly appreciate feedback. Please, let us know about any thought you can sha
 Acknowledments
 --------------
 
-The data has been derived from:
+These data have been derived from:
 - [CoV-AbDab](http://opig.stats.ox.ac.uk/webapps/covabdab/) ([paper](https://academic.oup.com/bioinformatics/advance-article/doi/10.1093/bioinformatics/btaa739/5893556), [CC-BY 4.0 license](https://creativecommons.org/licenses/by/4.0/))
 - [SAbDab, Chen et al.](https://tdcommons.ai/single_pred_tasks/develop/#sabdab-chen-et-al) ([paper](https://www.biorxiv.org/content/10.1101/2020.06.18.159798v1.abstract), [Therapeutic Data Commons](https://tdcommons.ai/), [CC-BY 3.0 license](https://creativecommons.org/licenses/by/3.0/))
 - [TAP](https://tdcommons.ai/single_pred_tasks/develop/#tap) ([paper](https://www.pnas.org/content/116/10/4025.short), [Therapeutic Data Commons](https://tdcommons.ai/), [CC-BY 4.0 license](https://creativecommons.org/licenses/by/4.0/))
