@@ -37,6 +37,9 @@ def frankenbody_encryption_smoke_test():
 
 
 def frankenbody_hub_smoke_tests():
+
+    # --- "Devel" subset (fixturize...)
+
     hub = FrankenbodyHub(subset=FrankenbodyHub.SUBSET_DEVEL)
 
     EXPECTED_FEATURIZATIONS = [
@@ -57,6 +60,28 @@ def frankenbody_hub_smoke_tests():
     for featurization_name, features_df in hub.iterate_features():
         assert EXPECTED_FEATURIZATION_SHAPES[featurization_name] == features_df.shape
 
+    # --- "Test" subset (fixturize...)
+
+    hub = FrankenbodyHub(subset=FrankenbodyHub.SUBSET_TEST)
+
+    EXPECTED_FEATURIZATIONS = [
+        'features_cdr3_esm1_small-test.parquet',
+        'features_cdr3_protlearn-test.parquet',
+        'features_full_esm1_small-test.parquet',
+        'features_full_protlearn-test.parquet'
+    ]
+    assert hub.list_present_features() == EXPECTED_FEATURIZATIONS
+
+    EXPECTED_FEATURIZATION_SHAPES = {
+        'features_cdr3_esm1_small': (3287, 39),
+        'features_cdr3_protlearn': (3287, 51),
+        'features_full_esm1_small': (3823, 39),
+        'features_full_protlearn': (3822, 59)
+    }
+
+    for featurization_name, features_df in hub.iterate_features():
+        assert EXPECTED_FEATURIZATION_SHAPES[featurization_name] == features_df.shape
+
 
 def smoke():
     frankenbody_encryption_smoke_test()
@@ -66,6 +91,7 @@ def smoke():
 def smoke_challenge():
     frankenbody_hub_smoke_tests()
     print('CHALLENGE SMOKE TESTS HAVE PASSED')
+    print('YOU SHOULD BE READY TO GO')
 
 
 def main():
