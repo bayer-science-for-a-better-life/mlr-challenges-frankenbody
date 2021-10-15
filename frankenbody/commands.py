@@ -37,13 +37,13 @@ def frankenbody_encryption_smoke_test():
 
 
 def frankenbody_hub_smoke_tests():
-    hub = FrankenbodyHub(subsample=True)
+    hub = FrankenbodyHub(subset=FrankenbodyHub.SUBSET_DEVEL)
 
     EXPECTED_FEATURIZATIONS = [
-        'features_cdr3_esm1_small-subsample.parquet',
-        'features_cdr3_protlearn-subsample.parquet',
-        'features_full_esm1_small-subsample.parquet',
-        'features_full_protlearn-subsample.parquet'
+        'features_cdr3_esm1_small-devel.parquet',
+        'features_cdr3_protlearn-devel.parquet',
+        'features_full_esm1_small-devel.parquet',
+        'features_full_protlearn-devel.parquet'
     ]
     assert hub.list_present_features() == EXPECTED_FEATURIZATIONS
 
