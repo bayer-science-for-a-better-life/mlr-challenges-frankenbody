@@ -38,12 +38,19 @@ class EncryptedFile(BytesIO):
         super().__init__(self._decrypt())  # N.B. fully read on memory upon instantiation
 
     def _encrypt(self):
-        if self.decrypted_path.is_file():
+
+        if self.encrypted_path.is_file() and self.decrypted_path.is_file():
+            update = self.encrypted_path.stat().st_mtime < self.decrypted_path.stat().st_mtime
+        else:
+            update = True
+
+        if update and self.decrypted_path.is_file():
             self.encrypted_path.parent.mkdir(exist_ok=True, parents=True)
             with self.decrypted_path.open('rb') as reader, self.encrypted_path.open('wb') as writer:
                 writer.write(Fernet(key=self.key).encrypt(reader.read()))
-            if self.remove_decrypted:
-                self.decrypted_path.unlink()
+
+        if self.decrypted_path.is_file() and self.remove_decrypted:
+            self.decrypted_path.unlink()
 
     def _decrypt(self) -> bytes:
         self._encrypt()
