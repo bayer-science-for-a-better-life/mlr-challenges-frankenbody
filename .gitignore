@@ -55,3 +55,4 @@ doc/_build
 *.xlsx
 data/results
 README.challenge.md
+challenge_help.py
