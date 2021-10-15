@@ -86,12 +86,17 @@ def _frankenbody_hub_smoke_tests():
 
 def _encrypt_decrypt_challenge_help():
     hub = FrankenbodyHub()
-    ef = EncryptedFile(hub.path / 'frankenbody' / 'challenge_help.py',
-                       FRANKENBODY_PRIVATE_KEY,
-                       remove_decrypted=False)
     dest_path = hub.path / 'frankenbody' / 'challenge.py'
-    ef.decrypt_to_file(dest_path)
-    print(f'CHALLENGE HELP DECRYPTED, PLEASE OPEN {dest_path}')
+    try:
+        ef = EncryptedFile(hub.path / 'frankenbody' / 'challenge_help.py',
+                           FRANKENBODY_PRIVATE_KEY,
+                           remove_decrypted=False)
+        ef.decrypt_to_file(dest_path)
+        print(f'CHALLENGE HELP DECRYPTED, PLEASE OPEN {dest_path}')
+    except FileNotFoundError as ex:
+        raise Exception(
+            f'WARNING: CANNOT GENERATE {dest_path}\n'
+            f'         PLEASE CONTACT "SUPPORT"') from ex
 
 
 def smoke():
