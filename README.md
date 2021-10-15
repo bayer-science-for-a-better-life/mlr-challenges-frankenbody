@@ -117,7 +117,7 @@ Please give us access to the repository and share the link with us in the email.
 - **Add an attachment to the email**.<br>
 Alternatively, you can also send the results in a compressed file.<br>
 
-Please beware of large attachement sizes. For example if you send us notebooks,
+Please beware of large attachement sizes. For example, if you send us notebooks,
 it would be a good idea to clean first variables holding heavy state (e.g., data and models).
 
 
@@ -146,3 +146,5 @@ These data have been derived from:
 - [CoV-AbDab](http://opig.stats.ox.ac.uk/webapps/covabdab/) ([paper](https://academic.oup.com/bioinformatics/advance-article/doi/10.1093/bioinformatics/btaa739/5893556), [CC-BY 4.0 license](https://creativecommons.org/licenses/by/4.0/))
 - [SAbDab, Chen et al.](https://tdcommons.ai/single_pred_tasks/develop/#sabdab-chen-et-al) ([paper](https://www.biorxiv.org/content/10.1101/2020.06.18.159798v1.abstract), [Therapeutic Data Commons](https://tdcommons.ai/), [CC-BY 3.0 license](https://creativecommons.org/licenses/by/3.0/))
 - [TAP](https://tdcommons.ai/single_pred_tasks/develop/#tap) ([paper](https://www.pnas.org/content/116/10/4025.short), [Therapeutic Data Commons](https://tdcommons.ai/), [CC-BY 4.0 license](https://creativecommons.org/licenses/by/4.0/))
+- [ESM](https://github.com/facebookresearch/esm) ([paper](https://doi.org/10.1101/622803), [MIT license](https://github.com/facebookresearch/esm/blob/main/LICENSE))
+- [protlearn](https://github.com/tadorfer/protlearn) ([MIT license](https://github.com/tadorfer/ProtLearn/blob/master/LICENSE))
