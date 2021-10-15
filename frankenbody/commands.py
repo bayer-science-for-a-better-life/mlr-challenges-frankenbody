@@ -1,10 +1,11 @@
 import pandas as pd
 
 from frankenbody.common import FrankenbodyHub
+from frankenbody.private_key import FRANKENBODY_PRIVATE_KEY
 from frankenbody.utils import EncryptedFile
 
 
-def frankenbody_encryption_smoke_test():
+def _frankenbody_encryption_smoke_test():
 
     # A key to test if encryption works
     a_key = b'FLrMTzp5j-tGSC6T01X-bMW6B1DEitatc6JmUP3Xs6M='
@@ -36,7 +37,7 @@ def frankenbody_encryption_smoke_test():
     print('ENCRYPTION WORKS')
 
 
-def frankenbody_hub_smoke_tests():
+def _frankenbody_hub_smoke_tests():
 
     # --- "Devel" subset (fixturize...)
 
@@ -83,15 +84,26 @@ def frankenbody_hub_smoke_tests():
         assert EXPECTED_FEATURIZATION_SHAPES[featurization_name] == features_df.shape
 
 
+def _encrypt_decrypt_challenge_help():
+    hub = FrankenbodyHub()
+    ef = EncryptedFile(hub.path / 'frankenbody' / 'challenge_help.py',
+                       FRANKENBODY_PRIVATE_KEY,
+                       remove_decrypted=False)
+    dest_path = hub.path / 'frankenbody' / 'challenge.py'
+    ef.decrypt_to_file(dest_path)
+    print(f'CHALLENGE HELP DECRYPTED, PLEASE OPEN {dest_path}')
+
+
 def smoke():
-    frankenbody_encryption_smoke_test()
+    _frankenbody_encryption_smoke_test()
     print('SMOKE TESTS HAVE PASSED')
 
 
 def smoke_challenge():
-    frankenbody_hub_smoke_tests()
+    _frankenbody_hub_smoke_tests()
     print('CHALLENGE SMOKE TESTS HAVE PASSED')
     print('YOU SHOULD BE READY TO GO')
+    _encrypt_decrypt_challenge_help()
 
 
 def main():
