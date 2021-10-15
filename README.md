@@ -85,7 +85,8 @@ FRANKENBODY_PRIVATE_KEY = b'FLrMTzp5j-tGSC6T01X-bMW6B1DEitatc6JmUP3Xs6M='
 conda activate frankenbody
 frankenbody smoke-challenge
 # if all this worked, you should see printed "CHALLENGE SMOKE TESTS HAVE PASSED"
-# otherwise, please drop us an email
+# also a new file "frankenbody/challenge.py" should appear
+# if not, please drop us an email
 ```
 
 Feel free to use anything, from python files to notebooks, to shape the solution.
