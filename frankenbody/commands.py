@@ -87,6 +87,13 @@ def _frankenbody_hub_smoke_tests():
 def _encrypt_decrypt_challenge_help():
     hub = FrankenbodyHub()
     dest_path = hub.path / 'frankenbody' / 'challenge.py'
+    if dest_path.is_file():
+        print(f'CHALLENGE HELP ALREADY EXISTS\n'
+              f' IF YOU WANT TO OVERWRITE IT, PLEASE DELETE IT FIRST:\n'
+              f'    rm {dest_path}\n'
+              f' AND RERUN:\n'
+              f'    frankenbody smoke-challenge')
+        return
     try:
         ef = EncryptedFile(hub.path / 'frankenbody' / 'challenge_help.py',
                            FRANKENBODY_PRIVATE_KEY,
