@@ -53,7 +53,7 @@ class FrankenbodyHub:
     SUBSET_TEST = 'test'    # Test subset (50% examples, 5% features)
 
     # noinspection PyTypeHints
-    def __init__(self, subset: Literal[SUBSET_NONE, SUBSET_DEVEL, SUBSET_NONE] = SUBSET_DEVEL):
+    def __init__(self, subset: Literal[SUBSET_NONE, SUBSET_DEVEL, SUBSET_TEST] = SUBSET_DEVEL):
         super().__init__()
         self.path = Path(__file__).parent.parent
         self.data_path = self.path / 'data'
