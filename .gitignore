@@ -56,3 +56,5 @@ doc/_build
 data/results
 README.challenge.md
 challenge_help.py
+frankenbody/example_challenge_solution.py
+avatars/
