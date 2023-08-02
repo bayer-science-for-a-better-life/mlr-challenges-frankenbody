@@ -23,16 +23,4 @@ setup(
             'frankenbody = frankenbody.commands:main'
         ]
     },
-
-    classifiers=[
-        'Intended Audience :: Science/Research',
-        'Intended Audience :: Developers',
-        'Topic :: Software Development',
-        'Topic :: Scientific/Engineering',
-        'License :: OSI Approved',
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.8',
-        'Programming Language :: Python :: 3.9',
-    ],
-    platforms=['Any'],
 )
